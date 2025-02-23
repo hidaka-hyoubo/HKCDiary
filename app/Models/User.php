@@ -42,4 +42,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+    /**
+     * このユーザーが所有するReport。（ Reportモデルとの関係を1対多と定義）
+     */
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
 }
