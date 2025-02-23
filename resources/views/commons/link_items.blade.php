@@ -1,6 +1,6 @@
 @if (Auth::check())
     {{-- 日報登録ページへのリンク --}}
-    <li><a class="link link-hover" href="{{ route('users.show', Auth::user()->id )}}">日報登録</a></li>
+    <li><a class="link link-hover" href="{{ route('reports.create')}}">日報</a></li>
     {{-- ログインユーザー情報ページへのリンク --}}
     <li><a class="link link-hover" href="#">ユーザー情報</a></li>
     {{-- ユーザー一覧ページへのリンク --}}

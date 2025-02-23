@@ -25,6 +25,44 @@ class ReportsController extends Controller
         // dashboardビューでそれらを表示
         return view('dashboard', $data);
     }
+    
+    public function show()
+    {
+        if (\Auth::check()) { // 認証済みの場合
+            // 認証済みユーザーを取得
+            $user = \Auth::user();
+            // ユーザーのreportの一覧を作成日時の降順で取得
+            $reports = $user->reports()->orderBy('created_at', 'desc')->paginate(10);
+            return view('reports.show',[
+                'user' => $user,
+                'reports' => $reports,
+            ]);
+        }
+        
+        return back();
+    }
+    
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        if (\Auth::check()){// 認証済みの場合
+            // 認証済みユーザーを取得
+            $user = \Auth::user();
+            
+            $report = new Report;
+
+        // タスク作成ビューを表示
+        return view('reports.create', [
+            'user' => $user,
+            'report' => $report,
+        ]);
+        }
+        // 前のURLへリダイレクトさせる
+        return back();
+    }
+    
     public function store(Request $request)
     {
         // バリデーション

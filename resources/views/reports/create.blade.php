@@ -4,7 +4,7 @@
     <div class="sm:col-span-2 mt-4">
         {{-- タブ --}}  
         @include('users.navtabs')
-        {{-- 投稿一覧 --}}
-        @include('reports.reports')
+        {{-- 投稿フォーム --}}
+        @include('reports.form')
     </div>
 @endsection
