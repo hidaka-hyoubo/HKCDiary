@@ -37,6 +37,11 @@ class UsersController extends Controller
     
     public function edit(string $id)
     {
+        // idの値でユーザーを検索して取得
+        $user = User::findOrFail($id);
+
+        // ユーザー詳細ビューでそれを表示
+        return view('users.edit', ['user' => $user]);
     }
     
     public function update(string $id)

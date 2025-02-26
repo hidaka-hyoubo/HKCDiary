@@ -1,6 +1,6 @@
-<div class="mt-4">
+<div class="flex justify-center">
     @if (isset($reports))
-        <ul class="list-none">
+        <ul class="w-1/2 list-none">
             @foreach ($reports as $report)
                 <li class="flex items-start gap-x-2 mb-4">
                     <div>

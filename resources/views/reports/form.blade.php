@@ -1,5 +1,6 @@
+<div class="flex justify-center">
 @if (Auth::id() == $user->id)
-    <div class="mt-4">
+    <div class="w-1/2">
         <form method="POST" action="{{ route('reports.store') }}">
             @csrf
             <div class="form-control mt-4">日付
@@ -16,3 +17,4 @@
         </form>
     </div>
 @endif
+</div>
