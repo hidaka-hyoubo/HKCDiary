@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="prose mx-auto text-center">
-        <h2>Sign up</h2>
+        <h2>ユーザー登録</h2>
     </div>
 
     <div class="flex justify-center">
@@ -38,7 +38,7 @@
                 <input type="password" name="password_confirmation" class="input input-bordered w-full">
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block normal-case">Sign up</button>
+            <button type="submit" class="btn btn-primary btn-block normal-case">登録</button>
         </form>
     </div>
 @endsection

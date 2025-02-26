@@ -43,8 +43,8 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
-
-        Auth::login($user);
+// 登録したアカウントでログインはしない
+        // Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
     }
