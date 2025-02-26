@@ -98,4 +98,49 @@ class ReportsController extends Controller
         return back()
             ->with('Delete Failed');
     }
+    // reoirt_Idを受け取ってビューを返す
+    public function edit(string $reportId)
+    {
+        // なぜエラーがでるのか？？
+        // $report = Report::findOrFail($reportId);
+        $report = Report::where('report_id', $reportId)->first();
+        
+        if (\Auth::id()=== $report->user_id){// 認証済みの場合
+            // 認証済みユーザーを取得
+            $user = \Auth::user();
+
+        // 日報修正ビューを表示
+        return view('reports.edit', [
+            'user' => $user,
+            'report' => $report,
+        ]);
+        }
+        // 前のURLへリダイレクトさせる
+        return back();
+    }
+     public function update(Request $request, string $id)
+    {
+        // バリデーション
+        $request->validate([
+            'report_date' => 'required|date',
+            'report_title' => 'required|max:255',
+            'report_content' => 'required|max:255',
+        ]);
+        
+         // idの値で日報を検索して取得
+        $report = Report::findOrFail($id);
+        
+        // 日報を更新
+        $report->report_date = $request->report_date;
+        $report->report_title = $request->report_title;
+        $report->report_content = $request->report_content;
+        
+        $report->save();
+
+        // トップページへリダイレクトさせる
+        return redirect('users.show');
+        
+        
+    }
+    
 }

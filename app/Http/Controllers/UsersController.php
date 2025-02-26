@@ -52,10 +52,10 @@ class UsersController extends Controller
             'email' => 'required|max:255',
         ]);
         
-         // idの値でタスクを検索して取得
+         // idの値でユーザーを検索して取得
         $user = User::findOrFail($id);
         
-        // タスクを更新
+        // ユーザーを更新
         $user->name = $request->name;
         $user->email = $request->email;
         // passwordはどのように？
