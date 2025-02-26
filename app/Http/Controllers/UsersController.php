@@ -44,7 +44,26 @@ class UsersController extends Controller
         return view('users.edit', ['user' => $user]);
     }
     
-    public function update(string $id)
+    public function update(Request $request, string $id)
     {
+        // バリデーション
+        $request->validate([
+            'name' => 'required|max:255',   // 追加
+            'email' => 'required|max:255',
+        ]);
+        
+         // idの値でタスクを検索して取得
+        $user = User::findOrFail($id);
+        
+        // タスクを更新
+        $user->name = $request->name;
+        $user->email = $request->email;
+        // passwordはどのように？
+        $user->save();
+
+        // トップページへリダイレクトさせる
+        return redirect('/');
+        
+        
     }
 }

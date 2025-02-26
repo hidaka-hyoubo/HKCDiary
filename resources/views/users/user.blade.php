@@ -1,6 +1,6 @@
     <div class="flex justify-center">
         @if (isset($user))
-        <form method="POST" action="{{ route('register') }}" class="w-1/2">
+        <form method="POST" action="{{ route('user.update',$user->id) }}" class="w-1/2">
             @csrf
 
             <div class="form-control my-4">
@@ -24,7 +24,7 @@
                 <input type="password" name="password" value="{{ $user->password }}" class="input input-bordered w-full">
             </div>
         @if(Auth::id() == $user->id)
-            <button type="submit" class="btn btn-primary btn-block normal-case">更新（未）</button>
+            <button type="submit" class="btn btn-primary btn-block normal-case">更新（password以外）</button>
         @endif
         </form>
         @endif

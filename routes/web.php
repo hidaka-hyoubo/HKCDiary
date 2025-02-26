@@ -23,12 +23,15 @@ Route::get('/', [ReportsController::class, 'index']);
 Route::get('/dashboard', [ReportsController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('users', UsersController::class, ['only' => ['index', 'show','edit','update']]);
+    Route::resource('users', UsersController::class, ['only' => ['index', 'show','edit']]);
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('reports', ReportsController::class, ['only' => ['store','edit','create','update', 'destroy']]);
     
+     Route::prefix('users/{id}')->group(function () {
+        Route::post('update', [UsersController::class, 'update'])->name('user.update');
+    });
 });
 
 require __DIR__.'/auth.php';
