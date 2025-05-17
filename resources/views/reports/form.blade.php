@@ -7,10 +7,10 @@
                 <input type="date" name="report_date" class="input input-bordered w-full"></input>
             </div>
             <div class="form-control my-4">タイトル
-                <input type="text" name="report_title" class="input input-bordered w-full"></input>
+                <input type="text" name="report_title" class="input input-bordered w-full" autocomplete="off"></input>
             </div>
             <div class="form-control my-4">内容
-                <input type="text" name="report_content" class="input input-bordered w-full"></input>
+                <input type="text" name="report_content" class="input input-bordered w-full" autocomplete="off"></input>
             </div>
         
             <button type="submit" class="btn btn-primary btn-block normal-case">日報登録</button>
