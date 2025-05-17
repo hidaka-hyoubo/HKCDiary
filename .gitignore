@@ -1,19 +1,39 @@
+# PHPUnit
+.phpunit.result.cache
 /.phpunit.cache
+
+# Laravel specific
+.env
+.env.*
+/vendor
+/storage/*.key
+/storage/logs
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/views
+/public/storage
+
+# Node / Frontend
 /node_modules
 /public/build
 /public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.env.production
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-auth.json
 npm-debug.log
 yarn-error.log
-/.fleet
+yarn-debug.log
+package-lock.json  # Optional: チーム方針による
+
+# IDE / OS / CI
 /.idea
 /.vscode
+/.fleet
+.DS_Store
+*.swp
+*.swo
+*.bak
+
+# Homestead (optional)
+Homestead.json
+Homestead.yaml
+
+# Composer authentication
+auth.json

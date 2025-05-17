@@ -1,0 +1,29 @@
+# Node.js関連（ビルド済み静的ファイル以外不要）
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+
+# Laravel関連
+/vendor
+/storage/*.key
+.env
+.env.*
+*.log
+
+# Docker自身の設定ファイル
+Dockerfile*
+docker-compose*
+
+# Git関連
+.git
+.gitignore
+
+# OSやエディタの一時ファイル
+*.DS_Store
+*.swp
+*.swo
+*.bak
+.idea/
+.vscode/
